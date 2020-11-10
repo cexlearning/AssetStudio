@@ -52,6 +52,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportAllAssetsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportSelectedAssetsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportMatShaderAssetsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportFilteredAssetsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.exportAnimatorWithSelectedAnimationClipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -309,6 +310,7 @@
             this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportAllAssetsMenuItem,
             this.exportSelectedAssetsMenuItem,
+            this.exportMatShaderAssetsMenuItem,
             this.exportFilteredAssetsMenuItem,
             this.toolStripSeparator3,
             this.exportAnimatorWithSelectedAnimationClipToolStripMenuItem,
@@ -332,6 +334,14 @@
             this.exportSelectedAssetsMenuItem.Size = new System.Drawing.Size(284, 22);
             this.exportSelectedAssetsMenuItem.Text = "Selected assets";
             this.exportSelectedAssetsMenuItem.Click += new System.EventHandler(this.exportSelectedAssetsMenuItem_Click);
+
+            //
+            //exportMatShaderAssetsMenuItem
+            //
+            this.exportMatShaderAssetsMenuItem.Name = "exportMatShaderAssetsMenuItem";
+            this.exportMatShaderAssetsMenuItem.Size = new System.Drawing.Size(284, 22);
+            this.exportMatShaderAssetsMenuItem.Text = "Mat Shader";
+            this.exportMatShaderAssetsMenuItem.Click += new System.EventHandler(this.exportMatShaderAssetsMenuItem_Click);
             // 
             // exportFilteredAssetsMenuItem
             // 
@@ -1059,6 +1069,7 @@
         private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportAllAssetsMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportSelectedAssetsMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exportMatShaderAssetsMenuItem;
         private System.Windows.Forms.Panel previewPanel;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.StatusStrip statusStrip1;

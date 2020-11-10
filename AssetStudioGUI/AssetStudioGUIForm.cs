@@ -1397,6 +1397,21 @@ namespace AssetStudioGUI
             ExportAssets(2, ExportType.Convert);
         }
 
+        private void exportMatShaderAssetsMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(KeyValuePair<string, long> kv in Studio.assetsManager.matShaderPathDict)
+            {
+                sb.AppendLine(kv.Key + "=" + kv.Value);
+            }
+
+            string filePath = "D:" + DateTime.Now.ToString("s").Replace(":", "_") + "matShaderPathID.txt";
+
+            File.WriteAllText(filePath, sb.ToString());
+
+            StatusStripUpdate("Exprot " + filePath);
+        }
+
         private void exportFilteredAssetsMenuItem_Click(object sender, EventArgs e)
         {
             ExportAssets(3, ExportType.Convert);

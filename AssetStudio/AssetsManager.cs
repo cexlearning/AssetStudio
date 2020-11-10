@@ -16,6 +16,8 @@ namespace AssetStudio
         private HashSet<string> importFilesHash = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         private HashSet<string> assetsFileListHash = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
+        public Dictionary<string, long> matShaderPathDict = new Dictionary<string, long>();
+
         public void LoadFiles(params string[] files)
         {
             var path = Path.GetDirectoryName(files[0]);
@@ -284,6 +286,14 @@ namespace AssetStudio
                                 break;
                             case ClassIDType.Material:
                                 obj = new Material(objectReader);
+
+                                Material mat = (obj as Material);
+                                string abName = obj.assetsFile.originalPath.Substring(obj.assetsFile.originalPath.LastIndexOf('\\') + 1);
+                                string dicKey = abName + "/" + mat.m_Name + ".mat";
+                                if (!matShaderPathDict.ContainsKey(dicKey))
+                                {
+                                    matShaderPathDict.Add(dicKey, (obj as Material).m_Shader.m_PathID);
+                                }
                                 break;
                             case ClassIDType.Mesh:
                                 obj = new Mesh(objectReader);
